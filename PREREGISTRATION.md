@@ -147,3 +147,10 @@ Flagged so they are not cited until checked.
 ## Appendix — outcomes
 
 (empty at time of writing)
+
+**2026-09-14.** Timing note. This file was committed at 22:58, after the
+challenge data files landed on disk at 22:27-22:47 the same evening. The data
+had not been opened, read or inspected at the time of writing -- no HDF5 file
+was accessed and no field was plotted -- but the git timestamp does not
+demonstrate that, and the header claim above overstates what the record shows.
+Recorded here rather than corrected in place.
