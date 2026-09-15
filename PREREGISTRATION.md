@@ -154,3 +154,51 @@ had not been opened, read or inspected at the time of writing -- no HDF5 file
 was accessed and no field was plotted -- but the git timestamp does not
 demonstrate that, and the header claim above overstates what the record shows.
 Recorded here rather than corrected in place.
+
+**2026-09-15. C1: passed.** Global POD basis (20 modes, matching the
+baselines), each case's coefficients split by least squares into pitching
+harmonics at the known f_P and a residual. At alpha_0 = 25 the residual is
+~0.007 against forced amplitudes of 2-7, i.e. numerically zero: the base flow
+is stable and the response is purely forced, as the challenge paper states.
+The forced amplitude across the eight frequencies traces a resonance curve
+peaking at f_P = 0.25 (amplitude 7.18, falling to 1.97 at f_P = 0.50). Crude
+damping estimate |sigma_25| ~ 0.31 from the half-max width, limited by having
+only eight sample frequencies.
+
+**2026-09-15. f_N measured independently.** At alpha_0 = 30 the five unlocked
+cases all carry their free component at f_free = 0.225-0.250, regardless of
+f_P, against an FFT resolution of 0.0125. This is f_N measured five times
+independently, and it agrees with the C1 resonance peak. The two measurements
+are unrelated, which is the substance of the result.
+
+**2026-09-15. Regime map, from data rather than assumption.** At alpha_0 = 30:
+f_P = 0.20, 0.25, 0.30 are fully locked (free fraction 0.000, residual three
+orders of magnitude below the forced part); f_P = 0.05, 0.10, 0.35, 0.40, 0.50
+are quasi-periodic (free fraction 0.43-0.87). All eight alpha_0 = 25 cases are
+purely forced. So the lock-in band at 30 deg contains 0.20 and 0.30 and
+excludes 0.10 and 0.35, centred near 0.24. The paper's locked cases at 0.25 and
+0.27 both sit inside it, and {30 deg, 0.27} -- where both baselines fail -- is
+therefore in-band.
+
+Abandonment condition 3 (most cases quasi-periodic, attractor a 2-torus) did
+NOT fire: 11 of 16 cases are locked or purely forced. But the 5 quasi-periodic
+cases are genuine tori, and the tangential/transverse decomposition is
+confounded there. It is valid on the other 11 and needs separate treatment on
+those 5.
+
+**2026-09-15. C3 is underdetermined as written -- a defect in the check, not a
+result.** Obtaining alpha_c requires sigma at both angles. C1 gives sigma_25
+from the resonance width. But the Stuart-Landau saturated amplitude at 30 deg
+is r^2 = sigma_30 / ell, so C2 yields only the RATIO sigma_30 / ell. Without an
+independent estimate of the cubic coefficient ell, alpha_c cannot be computed.
+C3 as pre-registered cannot be run. This was not spotted when the file was
+written. Any replacement check must be stated before it is run, in a new dated
+entry, not by editing C3 above.
+
+**2026-09-15. Method note.** Experiment 01 validated stroboscopic regime
+classification on synthetic data. The method actually used here is a
+least-squares fit of pitching harmonics at the known f_P, which resolves cases
+strobing could not (f_P = 0.05 gives only 3 strobe points). Experiment 01 is
+what established that record length was the binding constraint, which motivated
+the fit-at-known-frequency approach, but the method it validated is not the one
+in use.
